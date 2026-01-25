@@ -1,0 +1,14 @@
+.newsletter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter-section{
+    max-width: 900px;
+}
+
+#newsletter-image{
+    width: 100%;
+}
+

@@ -1,0 +1,29 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 114, 243);
+    margin-bottom: 1rem;
+}
+
+.paragraph-container{
+    max-width: 900px;
+}
+
+.about-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .paragraph-container{
+    margin: 0%
+}
+}

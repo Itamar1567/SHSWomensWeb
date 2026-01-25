@@ -9,8 +9,7 @@ function NavigationBar() {
   const [isBurgerToggled, setIsBurgerToggled] = useState(false);
 
   const links = [
-    { label: "Home", to: "/" },
-    { label: "About Us", to: "/about" },
+    { label: "About Us", to: "/" },
     { label: "Newsletter", to: "/newsletter" },
     { label: "Contact Us", to: "/contact" },
   ];
@@ -22,7 +21,7 @@ function NavigationBar() {
   return (
     <div className="nav-bar-container container">
       <div className="nav-bar-links">
-        <p id="title">SHS Women's Health Club</p>
+        <p id="nav-title">SHS Women's Health Club</p>
         <nav id="hamburger-nav">
           <IconButton onClick={toggleBurger}>
             {isBurgerToggled ? (
