@@ -1,0 +1,23 @@
+:root {
+    background-color: rgb(255, 245, 254);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  padding: 0rem 2rem;
+}
+
+@media only screen and (max-width: 600px) { 
+  .container{
+    padding: 0rem 1rem;
+  }
+}
