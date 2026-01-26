@@ -1,20 +1,31 @@
+import "./blogPage.css";
 import { useParams } from "react-router-dom";
 import { BLOGS } from "../types/blog";
 
-function BlogPage(){
+function BlogPage() {
+  const param = useParams<{ slug: string }>();
 
-    const slug = useParams<{slug: string}>();
+  const blog = BLOGS.find((b) => b.slug === param.slug);
 
-    const blog = BLOGS.find((b) => b.slug === slug);
+  if (!blog) {
+    <div className="container">
+      <p>Ran into an issue retrieving the blog</p>
+    </div>;
+  }
 
-    if(!blog) {<div className="container">Ran into an issue retrieving the blog</div>}
+  const formatDate = (date: string) => new Date(date).toLocaleDateString();
 
-    const formatDate = (date: string) => new Date(date).toLocaleDateString();
+  return (
+    <div className="blog-container container">
+      <p className="blog-title">{blog?.title}</p>
 
-
-    return (<div className="container">
-        This is a blog
-    </div>)
+      <section className="blog-content-section">
+        <p>{blog?.summary}</p>
+        <img id="blog-image" src={blog?.coverImageUrl} />
+        {blog?.content.map((p) => (<p>{p}</p>))}
+      </section>
+    </div>
+  );
 }
 
 export default BlogPage;

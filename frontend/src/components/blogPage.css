@@ -1,0 +1,26 @@
+.blog-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.blog-title {
+  font-size: 48px;
+}
+
+.blog-content-section {
+  max-width: 900px;
+}
+
+#blog-image{
+    display: block;
+    max-width: 100%;
+    width: 900px;
+    height: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  .blog-title {
+    font-size: 28px;
+  }
+}
