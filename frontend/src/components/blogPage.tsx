@@ -22,7 +22,7 @@ function BlogPage() {
       <section className="blog-content-section">
         <p>{blog?.summary}</p>
         <img id="blog-image" src={blog?.coverImageUrl} />
-        {blog?.content.map((p) => (<p>{p}</p>))}
+        {blog?.content.map((p, i) => (<p key={i}>{p}</p>))}
       </section>
     </div>
   );
