@@ -13,8 +13,6 @@ function BlogPage() {
     </div>;
   }
 
-  const formatDate = (date: string) => new Date(date).toLocaleDateString();
-
   return (
     <div className="blog-container container">
       <p className="blog-title">{blog?.title}</p>

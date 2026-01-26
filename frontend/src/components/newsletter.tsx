@@ -4,7 +4,8 @@ import { BLOGS, type GetBlogResponse } from "../types/blog";
 import BlogSummary from "./blogSummary";
 
 function Newsletter() {
-  const [blogs, setBlogs] = useState<GetBlogResponse[]>(BLOGS);
+  const blogs: GetBlogResponse[] = BLOGS;
+
   const [filteredBlogs, setFilteredBlog] = useState<GetBlogResponse[]>(BLOGS);
 
   const [searchItem, setSearchItem] = useState("");
@@ -25,6 +26,7 @@ function Newsletter() {
     );
 
     setFilteredBlog(filteredItems);
+
   }
 
   return (
@@ -41,9 +43,9 @@ function Newsletter() {
             onChange={filterBlogs}
           />
         </div>
-        {filteredBlogs.map((b) => (
+        {filteredBlogs.length > 0 ? filteredBlogs.map((b) => (
           <BlogSummary key={b.id} summaryInfo={b} />
-        ))}
+        )) : <p>No blogs found</p>}
       </section>
     </div>
   );
