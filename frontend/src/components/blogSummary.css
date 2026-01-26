@@ -1,0 +1,22 @@
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin-bottom: 1rem;
+}
+
+.summary-container:hover {
+  cursor: pointer;
+}
+
+.dates-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#summary-image {
+  width: 100%;
+  max-width: 900px;
+  max-height: 500px;
+}

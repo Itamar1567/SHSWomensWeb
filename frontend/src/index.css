@@ -16,6 +16,15 @@ body {
   padding: 0rem 2rem;
 }
 
+
+.section-title{
+    background-color: rgb(247, 157, 255);
+    padding: 1rem;
+    width: 100%;
+    font-size: 42px;
+    text-align: center;
+}
+
 @media only screen and (max-width: 600px) { 
   .container{
     padding: 0rem 1rem;

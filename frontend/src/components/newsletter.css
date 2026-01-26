@@ -4,11 +4,9 @@
   align-items: center;
 }
 
-.newsletter-section{
-    max-width: 900px;
+.newsletter-section {
+  max-width: 900px;
+  width: 100%;
 }
 
-#newsletter-image{
-    width: 100%;
-}
 
