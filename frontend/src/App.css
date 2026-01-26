@@ -11,11 +11,39 @@
     font-size: 42px;
 }
 
+.footerText{
+ color: white;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1; /* pushes footer down when content is short */
+}
+
+.follow-icon{
+    color: rgb(249, 208, 255);
+}
+
+.follow-icon:hover{
+    font-size: 32px;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+
 p{
     margin: 1rem 0rem;
     font-size: 24px;
 }
 
+.basic-link:hover{
+    font-size: 24px;
+    color: rgb(183, 0, 255);
+}
 
 @media only screen and (max-width: 600px){
     .section-title{

@@ -17,6 +17,7 @@
     max-width: 100%;
     width: 900px;
     height: 500px;
+    border-radius: 9px;
 }
 
 @media only screen and (max-width: 600px) {

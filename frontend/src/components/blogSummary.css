@@ -3,6 +3,8 @@
   flex-direction: column;
   max-width: 900px;
   margin-bottom: 1rem;
+  border-style: solid;
+  border-radius: 9px;
 }
 
 .summary-container:hover {
@@ -19,4 +21,5 @@
   width: 100%;
   max-width: 900px;
   max-height: 500px;
+  border-radius: 9px;
 }
