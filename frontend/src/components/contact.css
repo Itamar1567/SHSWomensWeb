@@ -15,7 +15,6 @@
   flex-wrap: wrap;
   display: flex;
   justify-content: space-between;
-
   margin: 0 auto;
   padding: 0 1rem;
 
@@ -46,7 +45,6 @@
 .contact-form{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: 30px;
 }
 
@@ -56,7 +54,13 @@
 }
 
 .contact-form-input{
-  max-width: 350px;
+  max-width: 375px;
   height: 40px;
   width: 100%;
+}
+
+.micro-contact-info-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

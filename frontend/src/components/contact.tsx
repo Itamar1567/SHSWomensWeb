@@ -8,40 +8,68 @@ function Contact() {
     <div className="contact-container container">
       <p className="section-title">Contact Us</p>
       <section className="contact-section">
-        <div className="contact-information">
-          <div className="contact-form-container">
-            <h1>Send Us a Message</h1>
-            <p>Please fill out the form below to get in touch with us</p>
-            <form className="contact-form">
-              <div className="input-field-pair">
-                <input
-                  placeholder="First name"
-                  type="text"
-                  className="contact-form-input"
-                />
-                <input
-                  placeholder="Last name"
-                  type="text"
-                  className="contact-form-input"
-                />
-              </div>
-              <div className="input-field-pair">
-                <input
-                  placeholder="Email"
-                  type="email"
-                  className="contact-form-input"
-                />
-                <input
-                  placeholder="Phone number"
-                  type="tel"
-                  className="contact-form-input"
-                />
-              </div>
+        <div className="contact-form-container">
+          <h1>Send Us a Message</h1>
+          <p>Please fill out the form below to get in touch with us</p>
+          <form
+            className="contact-form"
+            name="contact-form"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            action="/success"
+          >
 
-              <textarea id="message-input" placeholder="Message" />
-              <Button type="submit" variant="contained">Send</Button>
-            </form>
-          </div>
+            {/* Required hidden input */}
+            <input type="hidden" name="form-name" value="contact-form" />
+
+            {/* Honeypot field */}
+            <input type="hidden" name="bot-field" />
+
+            <div className="input-field-pair">
+              <input
+                name="firstname"
+                placeholder="First name"
+                type="text"
+                required
+                className="contact-form-input"
+              />
+              <input
+                name="lastname"
+                placeholder="Last name"
+                type="text"
+                required
+                className="contact-form-input"
+              />
+            </div>
+            <div className="input-field-pair">
+              <input
+                name="email"
+                placeholder="Email"
+                type="email"
+                required
+                className="contact-form-input"
+              />
+              <input
+                name="phone"
+                placeholder="Phone number"
+                type="tel"
+                required
+                className="contact-form-input"
+              />
+            </div>
+            <textarea
+              name="message"
+              id="message-input"
+              placeholder="Message"
+              required
+            />
+            <Button type="submit" variant="contained">
+              Send
+            </Button>
+          </form>
+        </div>
+        <div className="micro-contact-info-container">
           <div className="micro-contact-info">
             <PhoneIcon></PhoneIcon>
             <p>973-1111-111</p>
