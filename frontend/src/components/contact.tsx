@@ -18,7 +18,6 @@ function Contact() {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            action="/#/success"
           >
 
             {/* Required hidden input */}
