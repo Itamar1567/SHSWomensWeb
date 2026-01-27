@@ -7,6 +7,7 @@ import Contact from "./components/contact";
 import BlogPage from "./components/blogPage";
 import Footer from "./components/footer";
 import ScrollToTop from "./helpers/scrollToTop";
+import FormSubmitted from "./components/formSubmitted";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<About></About>}></Route>
         <Route path="/newsletter" element={<Newsletter></Newsletter>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route path="/success" element={<FormSubmitted></FormSubmitted>}></Route>
         <Route path="/blog/:slug" element={<BlogPage></BlogPage>}></Route>
       </Routes>
       </main>
