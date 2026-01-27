@@ -1,18 +1,17 @@
-
-.section-title{
-    background-color: rgb(247, 157, 255);
-    padding: 1rem;
-    width: 100%;
-    font-size: 42px;
-    text-align: center;
+.section-title {
+  background-color: rgb(247, 157, 255);
+  padding: 1rem;
+  width: 100%;
+  font-size: 42px;
+  text-align: center;
 }
 
-.article-title{
-    font-size: 42px;
+.article-title {
+  font-size: 42px;
 }
 
-.footerText{
- color: white;
+.footerText {
+  color: white;
 }
 
 .page {
@@ -25,32 +24,50 @@
   flex: 1; /* pushes footer down when content is short */
 }
 
-.follow-icon{
-    color: rgb(249, 208, 255);
+.follow-icon {
+  color: rgb(249, 208, 255);
 }
 
-.follow-icon:hover{
-    font-size: 32px;
-    cursor: pointer;
-    color: rgb(255, 0, 0);
+.follow-icon:hover {
+  font-size: 32px;
+  cursor: pointer;
+  color: rgb(255, 0, 0);
 }
 
-p{
-    margin: 1rem 0rem;
-    font-size: 24px;
+p {
+  margin: 1rem 0rem;
+  font-size: 24px;
 }
 
-.basic-link:hover{
-    font-size: 24px;
-    color: rgb(183, 0, 255);
+.basic-link:hover {
+  font-size: 24px;
+  color: rgb(183, 0, 255);
 }
 
-@media only screen and (max-width: 600px){
-    .section-title{
-        font-size: 28px;
-    }
+input {
+  background-color: rgb(194, 194, 194);
+  font-size: 20px;
+  padding: 5px 15px;
+}
 
-    .article-title{
-        font-size: 28px;
-    }
+input:hover {
+  background-color: rgb(161, 161, 161);
+}
+
+textarea {
+  font-size: 20px;
+  background-color: rgb(194, 194, 194);
+}
+
+textarea:hover {
+  background-color: rgb(161, 161, 161);
+}
+@media only screen and (max-width: 600px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .article-title {
+    font-size: 28px;
+  }
 }
