@@ -4,7 +4,7 @@ import "./contact.css";
 import { Button } from "@mui/material";
 
 function Contact() {
-  
+
   return (
     <div className="contact-container container">
       <p className="section-title">Contact Us</p>
@@ -18,7 +18,7 @@ function Contact() {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            action="/success"
+            action="/#/success"
           >
 
             {/* Required hidden input */}
