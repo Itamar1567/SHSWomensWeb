@@ -15,9 +15,10 @@ function Contact() {
           <form
             className="contact-form"
             name="contact-form"
-            method="POST"
             data-netlify="true"
+            method="POST"
             data-netlify-honeypot="bot-field"
+            action="/success"
           >
 
             {/* Required hidden input */}
