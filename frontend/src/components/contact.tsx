@@ -2,8 +2,26 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import "./contact.css";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Contact() {
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    // Send POST manually to Netlify
+    await fetch("/", {
+      method: "POST",
+      body: formData,
+    });
+
+    // Navigate to success page (client-side)
+    navigate("/success");
+  };
 
   return (
     <div className="contact-container container">
@@ -18,9 +36,8 @@ function Contact() {
             data-netlify="true"
             method="POST"
             data-netlify-honeypot="bot-field"
-            action="/success"
+            onSubmit={handleSubmit}
           >
-
             {/* Required hidden input */}
             <input type="hidden" name="form-name" value="contact-form" />
 
