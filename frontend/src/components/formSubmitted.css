@@ -1,0 +1,15 @@
+.submitted-form-container{
+    margin: 0% auto;
+    padding: 5rem;
+    border-style: solid;
+    max-width: 900px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+}
+
+.submission-message-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
