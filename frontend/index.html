@@ -7,7 +7,16 @@
     <title>SHS Women's Health Club</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- public/index.html -->
+      <form name="contact-form" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="firstname" />
+        <input type="text" name="lastname" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="message"></textarea>
+      </form>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
