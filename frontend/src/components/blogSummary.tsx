@@ -6,23 +6,26 @@ interface props {
   summaryInfo: GetBlogResponse;
 }
 function BlogSummary({ summaryInfo }: props) {
-    
   const navigate = useNavigate();
 
+  function handleClick() {
+    navigate(`/blog/${summaryInfo.slug}`);
+  }
   const formatDate = (date: string) => new Date(date).toLocaleDateString();
 
   return (
-    <div
-      onClick={() => navigate(`/blog/${summaryInfo.slug}`)}
-      className="summary-container container"
-    >
-      <p className="article-title">{summaryInfo.title}</p>
-      <p>{summaryInfo.summary}</p>
-      <img id="summary-image" src={summaryInfo.coverImageUrl} alt={summaryInfo.title} />
+    <div className="summary-container container">
+      <p onClick={handleClick} className="article-title text-animation">{summaryInfo.title}</p>
 
+      <img
+        onClick={handleClick}
+        id="summary-image"
+        src={summaryInfo.coverImageUrl}
+        alt={summaryInfo.title}
+      />
+      <p className="text-animation" onClick={handleClick}>{summaryInfo.summary}</p>
       <section className="dates-section">
         <p>Created On: {formatDate(summaryInfo.createdAt)}</p>
-        <p>Edited On: {formatDate(summaryInfo.updatedAt)}</p>
       </section>
     </div>
   );

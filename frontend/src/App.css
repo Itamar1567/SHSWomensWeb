@@ -26,10 +26,11 @@
 
 .follow-icon {
   color: rgb(249, 208, 255);
+  transition: transform 250ms ease;
 }
 
 .follow-icon:hover {
-  font-size: 32px;
+  transform: translateY(-9px);
   cursor: pointer;
   color: rgb(255, 0, 0);
 }

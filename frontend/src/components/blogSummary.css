@@ -1,17 +1,11 @@
 .summary-container {
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 163, 240);
   max-width: 900px;
   margin-bottom: 1rem;
-  border-style: solid;
   border-radius: 9px;
-  box-shadow: 5px 5px;
 }
 
-.summary-container:hover {
-  cursor: pointer;
-}
 
 .dates-section {
   width: 100%;
@@ -24,4 +18,17 @@
   max-width: 900px;
   max-height: 500px;
   border-radius: 9px;
+  opacity: 1;
+  transition: opacity 350ms ease;
+}
+
+#summary-image:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+
+.text-animation:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }

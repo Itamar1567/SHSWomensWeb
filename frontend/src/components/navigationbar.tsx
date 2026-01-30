@@ -3,9 +3,13 @@ import "./navigationbar.css";
 import { Button, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 function NavigationBar() {
+
+  const navigate = useNavigate();
+  
+
   const [isBurgerToggled, setIsBurgerToggled] = useState(false);
 
   const links = [
@@ -21,7 +25,7 @@ function NavigationBar() {
   return (
     <div className="nav-bar-container container">
       <div className="nav-bar-links">
-        <p id="nav-title">SHS Women's Health Club</p>
+        <p  onClick={() => navigate("/")} id="nav-title">SHS Women's Health Club</p>
         <nav id="hamburger-nav">
           <IconButton onClick={toggleBurger}>
             {isBurgerToggled ? (

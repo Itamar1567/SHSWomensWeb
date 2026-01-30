@@ -24,6 +24,10 @@
   font-size: 30px;
 }
 
+#nav-title:hover{
+  cursor: pointer;
+}
+
 .hamburger-links {
   display: none;
   position: absolute;
