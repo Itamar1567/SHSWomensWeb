@@ -1,4 +1,4 @@
-
+import blogsDb from '../assets/blogs.json'
 
 export type GetBlogResponse = {
   id: number;
@@ -11,27 +11,42 @@ export type GetBlogResponse = {
   updatedAt: string;
 };
 
-export const BLOGS: GetBlogResponse[] = [
-  {
-    id: 1,
-    slug: "welcome",
-    title: "Welcome",
-    summary: "A quick intro to what we do.",
-    content: ["Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.", "Full blog content goes here...", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan."],
-    coverImageUrl: "/blog-covers/example2.jpg",
-    createdAt: "2026-01-10T00:00:00.000Z",
-    updatedAt: "2026-01-20T00:00:00.000Z",
-  },
+export const BLOGS: GetBlogResponse[] = blogsDb;
 
-  {
-    id: 2,
-    slug: "helloworld",
-    title: "Hello World",
-    summary: "A quick intro to what we do.",
-    content: ["Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.", "Full blog content goes here...", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan."],
-    coverImageUrl: "/blog-covers/example2.jpg",
-    createdAt: "2026-01-10T00:00:00.000Z",
-    updatedAt: "2026-01-20T00:00:00.000Z",
-  },
+/*
+ TO ADD A NEW BLOG
 
-];
+ How to create the blog:
+ 
+ inside the above box parenthesis in the json file add this:
+
+ {
+
+  id: ;
+  slug: ; 
+  title: ;
+  summary: ;
+  content: ;
+  coverImageUrl: ;
+  createdAt: ;
+  updatedAt: ;
+
+ },
+ 
+ Now fill each row with its corresponding data as shown below 
+
+ 1. Increment the previous id by 1 (using numbers)
+
+ Anything Under here must be within qoutes (i.e a string)
+
+ 2. Add a unique slug, i.e use blog
+ 3. Add a title
+ 4. Add a summary
+ 5. Add a paragraph like so "I am a paragraph" and split paragraphs by using a comma (,) after the qoutes Ex: "Par1", "Par2"
+ 6. Add a cover image for the post by typing the location of the image and the name of the image Ex: /blog-covers/example.png
+ 7. Add a date, use this format: yyyy-mm-ddT00:00:00.000Z
+
+ 
+
+
+*/
