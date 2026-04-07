@@ -1,10 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using project_name.Data;
+
 var corsPolicy = "_myPolicy";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
-var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>(); 
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{ options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")); });
+
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(corsPolicy, corsPolicy =>
