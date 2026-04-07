@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-namespace project_name.Data
+namespace backend.Data
 {
-  public class ApplicationDbContext : DbContext
+  public class AppDbContext : DbContext
   {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
-     {
-     }
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) 
+    {
+    }
     public DbSet <Newsletters> Newsletters{ get; set; }
   }
 }

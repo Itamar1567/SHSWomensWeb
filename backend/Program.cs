@@ -1,23 +1,29 @@
 using Microsoft.EntityFrameworkCore;
-using project_name.Data;
+using backend.Data;
 
 var corsPolicy = "_myPolicy";
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-{ options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")); });
+//Dependency Injections
+builder.Services.AddScoped<DatabaseRepository>();
 
-var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
+
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>(); 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(corsPolicy, corsPolicy =>
     {
         //Compound assignment, if allowedOrigins null then make it [""] else keep it as is
-        allowedOrigins ??= ["http://localhost:5173/"];
+        allowedOrigins ??= new[] { "http://localhost:5173/" };
         corsPolicy.WithOrigins(allowedOrigins).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
     });
 });
