@@ -1,2 +1,6 @@
+POST http://localhost:5100/api/cloudstorage/generate-signed-url
+Content-Type: application/json
 
-GET http://localhost:5100/api/test
+{
+  "objectName": "test.png"
+}

@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 
 //Dependency Injections
 builder.Services.AddScoped<DatabaseRepository>();
+builder.Services.AddScoped<GenerateSignedUrl>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -17,13 +18,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
-var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>(); 
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(corsPolicy, corsPolicy =>
     {
         //Compound assignment, if allowedOrigins null then make it [""] else keep it as is
-        allowedOrigins ??= new[] { "http://localhost:5173/" };
+        if (allowedOrigins == null || allowedOrigins.Length == 0)
+        {
+            allowedOrigins = ["http://localhost:5174"];
+        }
+        
         corsPolicy.WithOrigins(allowedOrigins).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
     });
 });
@@ -38,6 +43,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseCors(corsPolicy);
 app.UseAuthorization();
 
 app.MapStaticAssets();
