@@ -28,3 +28,12 @@ dist-ssr
 *.env
 # Local Netlify folder
 .netlify
+
+# .NET build folders
+**/bin/
+**/obj/
+
+# Config
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
