@@ -1,6 +1,5 @@
 POST http://localhost:5100/api/cloudstorage/generate-signed-url
 Content-Type: application/json
-
 {
   "objectName": "test.png"
 }

@@ -23,11 +23,11 @@ public class CloudStorageController : ControllerBase
         var url = _generator.GenerateV4SignedUrl(objectName.ObjectName);
         if (url != null)
         {
-            return Ok(new { signedUrl = url });
+            return Ok(new { message = "Signed URL generated successfully.", signedUrl = url });
         }
         else
         {
-            return StatusCode(500, "Error generating signed URL.");
+            return StatusCode(500, new { message = "Error generating signed URL." });
         }
     }
 }
