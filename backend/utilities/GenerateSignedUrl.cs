@@ -5,18 +5,17 @@ using System;
 using System.Net.Http;
 public class GenerateSignedUrl
 {
-    public string GenerateV4SignedUrl(string objectName = "your-object-name")
+    public string GenerateV4SignedUrl(string fileName = "your-object-name", string fileType = "text/plain", string bucketName = "your-bucket-name")
     {
 
         try
         {
-            string bucketName = "shs_newsletter_images";
 
             UrlSigner urlSigner = UrlSigner.FromCredential(GoogleCredential.GetApplicationDefault());
 
             var contentHeaders = new Dictionary<string, IEnumerable<string>>
         {
-            { "Content-Type", new[] { "text/plain" } }
+            { "Content-Type", new[] { fileType } }
         };
 
             // V4 is the default signing version.
@@ -24,7 +23,7 @@ public class GenerateSignedUrl
 
             UrlSigner.RequestTemplate template = UrlSigner.RequestTemplate
                 .FromBucket(bucketName)
-                .WithObjectName(objectName)
+                .WithObjectName(fileName)
                 .WithHttpMethod(HttpMethod.Put)
                 .WithContentHeaders(contentHeaders);
 
