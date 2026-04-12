@@ -9,8 +9,7 @@ public class GenerateSignedUrl
     {
 
         try
-        {
-
+        {   
             UrlSigner urlSigner = UrlSigner.FromCredential(GoogleCredential.GetApplicationDefault());
 
             var contentHeaders = new Dictionary<string, IEnumerable<string>>

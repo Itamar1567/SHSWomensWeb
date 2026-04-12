@@ -1,6 +1,11 @@
-POST http://localhost:5100/api/cloudstorage/generate-signed-url
-Content-Type: application/json
+POST http://localhost:5100/api/newsletter HTTP/1.1
+content-type: application/json
+
 {
-  "name": "test.png",
-  "type": "image/png"
+    "title": "Test Newsletter",
+    "slug": "This is a test newsletter.",
+    "author": "i",
+    "image_path": "image.png",
+    "short_description": "This is a short description of the newsletter.",
+    "story_text": "This is the full text of the newsletter story."
 }
