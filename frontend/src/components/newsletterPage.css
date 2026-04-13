@@ -1,18 +1,18 @@
-.blog-container {
+.newsletter-container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.blog-title {
+.newsletter-title {
   font-size: 48px;
 }
 
-.blog-content-section {
+.newsletter-content-section {
   max-width: 900px;
 }
 
-#blog-image{
+#newsletter-image{
     display: block;
     max-width: 100%;
     width: 900px;
@@ -21,7 +21,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .blog-title {
+  .newsletter-title {
     font-size: 28px;
   }
 }

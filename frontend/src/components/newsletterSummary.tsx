@@ -1,33 +1,40 @@
 import "./newsletterSummary.css";
-import type { GetBlogResponse } from "../types/blog";
 import { useNavigate } from "react-router-dom";
+import type { GetNewsletterDTO } from "../types/GetNewsletterDTO";
 
 interface props {
-  summaryInfo: GetBlogResponse;
+  newsletterSummary: GetNewsletterDTO;
 }
-function BlogSummary({ summaryInfo }: props) {
+
+function NewsletterSummary({ newsletterSummary }: props) {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`/blog/${summaryInfo.slug}`);
+    navigate(`/newsletter/${newsletterSummary.slug}`);
   }
   const formatDate = (date: string) => new Date(date).toLocaleDateString();
 
   return (
     <div className="summary-container container">
-      <p onClick={handleClick}>{summaryInfo.title}</p>
-      <img
-        onClick={handleClick}
-        id="summary-image"
-        src={summaryInfo.coverImageUrl}
-        alt={summaryInfo.title}
-      />
-      <p className="text-animation" onClick={handleClick}>{summaryInfo.summary}</p>
+      <p onClick={handleClick}>{newsletterSummary.title}</p>
+      {newsletterSummary.image_path != null && (
+        <img
+          onClick={handleClick}
+          id="summary-image"
+          src={newsletterSummary.image_path}
+          alt={newsletterSummary.title}
+        />
+      )}
+
+      <p className="text-animation" onClick={handleClick}>
+        {newsletterSummary.short_description}
+      </p>
       <section className="dates-section">
-        <p>Created On: {formatDate(summaryInfo.createdAt)}</p>
+        <p>Created On: {formatDate(newsletterSummary.created_at.toString())}</p>
+        <p>Updated On: {formatDate(newsletterSummary.updated_at.toString())}</p>
       </section>
     </div>
   );
 }
 
-export default BlogSummary;
+export default NewsletterSummary;

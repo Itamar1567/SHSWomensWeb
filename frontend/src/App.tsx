@@ -4,10 +4,10 @@ import "./App.css";
 import About from "./components/about";
 import Newsletter from "./components/newsletters";
 import Contact from "./components/contact";
-import BlogPage from "./components/newsletterPage";
 import Footer from "./components/footer";
 import ScrollToTop from "./helpers/scrollToTop";
 import FormSubmitted from "./components/formSubmitted";
+import NewsletterPage from "./components/newsletterPage";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/newsletter" element={<Newsletter></Newsletter>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/success" element={<FormSubmitted></FormSubmitted>}></Route>
-        <Route path="/blog/:slug" element={<BlogPage></BlogPage>}></Route>
+        <Route path="/newsletter/:slug" element={<NewsletterPage></NewsletterPage>}></Route>
       </Routes>
       </main>
       

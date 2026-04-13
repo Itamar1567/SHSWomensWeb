@@ -1,29 +1,53 @@
 import "./newsletterPage.css";
 import { useParams } from "react-router-dom";
-import { BLOGS } from "../types/blog";
+import type { GetNewsletterDTO } from "../types/GetNewsletterDTO";
+import { useState, useEffect } from "react";
 
-function BlogPage() {
+function NewsletterPage() {
   const param = useParams<{ slug: string }>();
+  const [newsletter, setNewsletter] = useState<GetNewsletterDTO>(
+    {} as GetNewsletterDTO,
+  );
 
-  const blog = BLOGS.find((b) => b.slug === param.slug);
+  useEffect(() => {
+    const GetNewsletter = async () => {
+      try {
+        const res = await fetch("/newsletters.json");
+        const data = await res.json();
+        const tempNewsletter = data.newsletters.find(
+          (n: GetNewsletterDTO) => n.slug === param.slug,
+        );
+        setNewsletter(tempNewsletter);
+      } catch (error) {
+        console.log("Failed to fetch newsletters:", error);
+      }
+    };
+    GetNewsletter();
+  }, []);
 
-  if (!blog) {
+  if (!newsletter) {
     <div className="container">
-      <p>Ran into an issue retrieving the blog</p>
+      <p>Ran into an issue retrieving the newsletter</p>
     </div>;
   }
 
   return (
-    <div className="blog-container container">
-      <p className="blog-title">{blog?.title}</p>
+    <div className="newsletter-container container">
+      <p className="newsletter-title">{newsletter.title}</p>
 
-      <section className="blog-content-section">
-        <p>{blog?.summary}</p>
-        <img id="blog-image" src={blog?.coverImageUrl} />
-        {blog?.content.map((p, i) => (<p key={i}>{p}</p>))}
+      <section className="newsletter-content-section">
+        <p>{newsletter.short_description}</p>
+        {newsletter.image_path != null && (
+          <img id="newsletter-image" src={newsletter.image_path} />
+        )}
+        {newsletter.story_text != null ? (
+          <p>{newsletter.story_text}</p>
+        ) : (
+          <p>Nothing to see here</p>
+        )}
       </section>
     </div>
   );
 }
 
-export default BlogPage;
+export default NewsletterPage;
