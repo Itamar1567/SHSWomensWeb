@@ -1,15 +1,26 @@
 {
   "newsletters": [
     {
-      "id": 16,
-      "title": "Lorem Ipsum",
-      "slug": "lorem-ipsum",
-      "author": "Itamar Baharav",
-      "image_path": "https://storage.googleapis.com/shs_newsletter_images/stadia_sdlc_failure_chart.png",
-      "short_description": "The lorem Ipsum of this world",
-      "story_text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.\nLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.\nDolor sit amet\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.\n",
-      "created_at": "2026-04-12T22:20:47",
-      "updated_at": "2026-04-12T22:20:47"
+      "id": 11,
+      "title": "Turin Turambar",
+      "slug": "turin-turambar",
+      "author": "Manwe",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/turin_turambar.png",
+      "short_description": "The life of Turin Turambar",
+      "story_text": "Túrin accidentally caused the death of Saeros, one of Thingol's counsellors who provoked and attacked him. Before he could be either punished or forgiven for it, he fled, eventually encountering a band of outlaws that dwelt south of Brethil. With them, he identified himself only as Neithan (\"the wronged\"). The men of the band realized he was by far more skilled than themselves, so they accepted him. Túrin slew their leader after seeing him terrorize a woman, and became the outlaws' leader in his place. As leader, he stopped the band from raiding houses of free folk, and directed them to only assail Orcs.\n\nIn the meantime, Beleg Cúthalion obtained leave from Thingol to seek out his friend. In FA 487, Beleg found Túrin's outlaws at the outskirts of Amon Rûdh and was held and tied up by them until Túrin returned. Andróg, who was a prominent member of the group, mistrusted Beleg even after Túrin declared him a friend and begrudged him Túrin`s friendship. Beleg tried to persuade Túrin to return to Doriath, for the king held that he was innocent. When Beleg could not persuade his friend to leave the outlaws, he left to return to Doriath. Túrin's band later captured Mîm the Petty-dwarf while Beleg and Túrin were parted. Mîm was forced to share his halls on Amon Rûdh with his company while Túrin promised to repay Mîm for the accidental death of his son Khîm.",
+      "created_at": "2026-04-13T11:05:03",
+      "updated_at": "2026-04-13T11:05:03"
+    },
+    {
+      "id": 10,
+      "title": "Kaladin Stormblessed",
+      "slug": "kaladin-stormblessed",
+      "author": "Dalinar Kholin",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/kaladin.png",
+      "short_description": "The life of Kaladin Stormblessed",
+      "story_text": "Kaladin is one of the main protagonists in The Stormlight Archive. An accomplished spearman and a natural leader, he eventually becomes the captain of Elhokar Kholin's King's Guard, formerly known as the Cobalt Guard, House Kholin's personal honor guard.[3]\n\nHe is known by many as Kaladin Stormblessed, a nickname given to him by his squad in Amaram's army as a result of his uncanny luck and tendency to have the fewest casualties. The name was again given to him by his fellow bridgemen,[4] but it would soon spread to the entirety of Sadeas's warcamp. (Notably, his bridge earned a reputation for losing the fewest members of any bridge crew in Sadeas's army.) Following Bridge Four's rescue of Dalinar's army after Sadeas's betrayal,[5][6] the crew became famous throughout the warcamps and Kaladin became known to most therein as Kaladin Stormblessed.* He has risen further than any darkeyes could dare to hope, gaining the trust and admiration of both lighteyes and darkeyes.",
+      "created_at": "2026-04-13T10:29:09",
+      "updated_at": "2026-04-13T10:29:09"
     }
   ]
 }

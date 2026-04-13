@@ -41,7 +41,7 @@ function NewsletterPage() {
           <img id="newsletter-image" src={newsletter.image_path} />
         )}
         {newsletter.story_text != null ? (
-          <p>{newsletter.story_text}</p>
+          <p className="newsletter-story-text">{newsletter.story_text}</p>
         ) : (
           <p>Nothing to see here</p>
         )}

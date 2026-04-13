@@ -15,24 +15,33 @@ function NewsletterSummary({ newsletterSummary }: props) {
   const formatDate = (date: string) => new Date(date).toLocaleDateString();
 
   return (
-    <div className="summary-container container">
-      <p onClick={handleClick}>{newsletterSummary.title}</p>
-      {newsletterSummary.image_path != null && (
-        <img
-          onClick={handleClick}
-          id="summary-image"
-          src={newsletterSummary.image_path}
-          alt={newsletterSummary.title}
-        />
-      )}
+    <div>
+      <div className="summary-container container">
+        <p className="text-animation" onClick={handleClick}>
+          {newsletterSummary.title}
+        </p>
+        {newsletterSummary.image_path != null && (
+          <img
+            onClick={handleClick}
+            id="summary-image"
+            src={newsletterSummary.image_path}
+            alt={newsletterSummary.title}
+          />
+        )}
 
-      <p className="text-animation" onClick={handleClick}>
-        {newsletterSummary.short_description}
-      </p>
-      <section className="dates-section">
-        <p>Created On: {formatDate(newsletterSummary.created_at.toString())}</p>
-        <p>Updated On: {formatDate(newsletterSummary.updated_at.toString())}</p>
-      </section>
+        <p className="text-animation" onClick={handleClick}>
+          {newsletterSummary.short_description}
+        </p>
+        <section className="dates-section">
+          <p>
+            Created On: {formatDate(newsletterSummary.created_at.toString())}
+          </p>
+          <p>
+            Updated On: {formatDate(newsletterSummary.updated_at.toString())}
+          </p>
+        </section>
+      </div>
+      <hr style={{"height": "5px"}}></hr>
     </div>
   );
 }
