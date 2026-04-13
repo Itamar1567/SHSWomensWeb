@@ -1,4 +1,4 @@
-import "./blogSummary.css";
+import "./newsletterSummary.css";
 import type { GetBlogResponse } from "../types/blog";
 import { useNavigate } from "react-router-dom";
 
@@ -15,8 +15,7 @@ function BlogSummary({ summaryInfo }: props) {
 
   return (
     <div className="summary-container container">
-      <p onClick={handleClick} className="article-title text-animation">{summaryInfo.title}</p>
-
+      <p onClick={handleClick}>{summaryInfo.title}</p>
       <img
         onClick={handleClick}
         id="summary-image"

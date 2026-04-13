@@ -1,4 +1,4 @@
-import "./blogPage.css";
+import "./newsletterPage.css";
 import { useParams } from "react-router-dom";
 import { BLOGS } from "../types/blog";
 

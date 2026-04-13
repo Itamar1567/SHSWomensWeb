@@ -1,7 +1,7 @@
-import "./newsletter.css";
+import "./newsletters.css";
 import { useState } from "react";
 import { BLOGS, type GetBlogResponse } from "../types/blog";
-import BlogSummary from "./blogSummary";
+import BlogSummary from "./newsletterSummary";
 
 function Newsletter() {
   const blogs: GetBlogResponse[] = BLOGS;
