@@ -1,32 +1,51 @@
 import "./newsletters.css";
-import { useState } from "react";
-import { BLOGS, type GetBlogResponse } from "../types/blog";
-import BlogSummary from "./newsletterSummary";
+import { useEffect, useState } from "react";
+import NewsletterSummary from "./newsletterSummary";
+import type { GetNewsletterDTO } from "../types/GetNewsletterDTO";
 
 function Newsletter() {
-  const blogs: GetBlogResponse[] = BLOGS;
+  const [loading, setLoading] = useState(true);
 
-  const [filteredBlogs, setFilteredBlog] = useState<GetBlogResponse[]>(BLOGS);
-
+  const [newsletters, setNewsletters] = useState<GetNewsletterDTO[]>([]);
+  const [filteredNewsletters, setFilteredNewsletters] = useState<GetNewsletterDTO[]>([]);
   const [searchItem, setSearchItem] = useState("");
 
-  function filterBlogs(e: React.ChangeEvent<HTMLInputElement>) {
+  useEffect(() => {
+    const GetNewsletters = async () => {
+      try {
+        const res = await fetch("/newsletters.json");
+        const data = await res.json();
+        console.log("Fetched newsletters:", data.newsletters);
+        setNewsletters(data.newsletters);
+        setFilteredNewsletters(data.newsletters);
+
+      } catch (error) {
+        console.log("Failed to fetch newsletters:", error);
+        setNewsletters([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    GetNewsletters();
+  }, []);
+
+
+
+  function filterNewsletters(e: React.ChangeEvent<HTMLInputElement>) {
     let searchTerm: string = e.currentTarget.value;
-    console.log("Entered")
     if (!searchTerm.trim()) {
       setSearchItem(searchTerm);
-      setFilteredBlog(blogs);
+      setFilteredNewsletters(newsletters);
       return;
     }
 
     setSearchItem(searchTerm);
 
-    const filteredItems = blogs.filter((b) =>
+    const filteredItems = newsletters.filter((b) =>
       b.title.toLowerCase().trim().includes(searchTerm.toLowerCase().trim()),
     );
 
-    setFilteredBlog(filteredItems);
-
+    setFilteredNewsletters(filteredItems);
   }
 
   return (
@@ -39,13 +58,19 @@ function Newsletter() {
             id="search"
             type="text"
             value={searchItem}
-            placeholder="Search for a blog by title"
-            onChange={filterBlogs}
+            placeholder="Search for a newsletter by title"
+            onChange={filterNewsletters}
           />
         </div>
-        {filteredBlogs.length > 0 ? filteredBlogs.map((b) => (
-          <BlogSummary key={b.id} summaryInfo={b} />
-        )) : <p>No blogs found</p>}
+        {loading ? (
+          <p>Loading...</p>
+        ) : filteredNewsletters.length > 0 ? (
+          filteredNewsletters.map((b) => (
+            <NewsletterSummary key={b.id} newsletterSummary={b} />
+          ))
+        ) : (
+          <p>No newsletters found</p>
+        )}
       </section>
     </div>
   );
