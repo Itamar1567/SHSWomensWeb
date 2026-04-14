@@ -1,15 +1,13 @@
 
 using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Storage.V1;
-using System;
-using System.Net.Http;
 public class GenerateSignedUrl
 {
     public string GenerateV4SignedUrl(string fileName = "your-object-name", string fileType = "text/plain", string bucketName = "your-bucket-name")
     {
 
         try
-        {   
+        {
             UrlSigner urlSigner = UrlSigner.FromCredential(GoogleCredential.GetApplicationDefault());
 
             var contentHeaders = new Dictionary<string, IEnumerable<string>>
@@ -36,7 +34,7 @@ public class GenerateSignedUrl
         catch
         {
             Console.WriteLine("Error generating signed URL.");
-            return null;
+            throw new Exception("Failed to generate a signed URL request.");
         }
     }
 }

@@ -1,18 +1,15 @@
-using System.ComponentModel;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Bcpg.Attr;
-using ZstdSharp.Unsafe;
 
 [ApiController]
 [Route("api/[controller]")]
 public class NewsLetterController : ControllerBase
 {
     private readonly DatabaseRepository _db;
-
-    public NewsLetterController(DatabaseRepository db)
+    private readonly FrontendActions _frontendActions;
+    public NewsLetterController(DatabaseRepository db, FrontendActions frontendActions)
     {
         _db = db;
+        _frontendActions = frontendActions;
     }
 
 
@@ -36,12 +33,6 @@ public class NewsLetterController : ControllerBase
                 return StatusCode(400, new { message = "Newsletter with this title already exists." });
             }
 
-            if (newsletter.image_path != null && await _db.IsDuplicateImage(newsletter.image_path))
-            {
-                Console.WriteLine(newsletter.image_path + " is a duplicate image path.");
-                return StatusCode(400, new { message = "Newsletter with this image path already exists." });
-            }
-
             Newsletters newNewsletter = new Newsletters
             {
                 title = newsletter.title,
@@ -54,6 +45,7 @@ public class NewsLetterController : ControllerBase
 
             if (await _db.CreateNewsLetter(newNewsletter))
             {
+                await _frontendActions.RedeployMainWeb();
                 return Ok(new { message = "Newsletter created successfully" });
             }
 

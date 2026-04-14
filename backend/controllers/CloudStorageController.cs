@@ -1,4 +1,3 @@
-using System.Security;
 using Microsoft.AspNetCore.Mvc;
 
 public class SignedUrlRequest
@@ -8,6 +7,7 @@ public class SignedUrlRequest
 
     public required long size { get; set; }
 }
+
 
 [ApiController]
 [Route("api/[controller]")]
@@ -19,11 +19,12 @@ public class CloudStorageController : ControllerBase
     public CloudStorageController(GenerateSignedUrl generator)
     {
         _generator = generator;
+
     } 
 
     [HttpPost("generate-signed-url")]
     public IActionResult GenerateSignedUrl([FromBody] SignedUrlRequest file)
-    {   
+    {           
         Console.WriteLine("File name: " + file.name + ", File type: " + file.type);
         if(file.type != "image/jpeg" && file.type != "image/png")
         {

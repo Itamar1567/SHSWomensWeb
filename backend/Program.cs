@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 //Dependency Injections
 builder.Services.AddScoped<DatabaseRepository>();
 builder.Services.AddScoped<GenerateSignedUrl>();
+builder.Services.AddScoped<FrontendActions>();
+builder.Services.AddScoped<HttpClient>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
