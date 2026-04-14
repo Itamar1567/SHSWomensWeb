@@ -66,6 +66,7 @@ public class NewsLetterController : ControllerBase
         try
         {
             string data = await _db.DeleteNewsLetter(id);
+            await _frontendActions.RedeployMainWeb();
             return Ok(new { message = data });
         }catch(Exception ex)
         {
