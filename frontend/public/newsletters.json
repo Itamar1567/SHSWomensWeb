@@ -1,6 +1,17 @@
 {
   "newsletters": [
     {
+      "id": 14,
+      "title": "Marsh the Inquisitor",
+      "slug": "marsh-the-inquisitor",
+      "author": "Kelsier",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/Marsh.png",
+      "short_description": "The transformation of Marsh",
+      "story_text": "Becoming an Inquisitor\nPlacing himself within a batch of new Ministry recruits flowing into Luthadel, he was accepted into their ranks. He quickly began to reveal important Ministry secrets to the rebellion using secret messages and drop sites. One such secret was the soothing stations, positioned by the Lord Ruler across Luthadel to inspire depression and docility in the skaa population.[35]\n\nHowever, not everything went as planned. Marsh set up a meeting at a site he was supposed to inspect for suitability as a soothing station. However, when the crew arrived, they discovered only a headless corpse, butchered by Inquisitors, and assumed Marsh dead.[36] They found a chair leg with a hidden message inside from Marsh, indicating that his questions about the Inquisitors had potentially exposed him, as they had been watching him, following him, and asking about him.\n\nIt was later revealed that he had been watched by the Canton of Inquisition, as Seekers were particularly desired, and they had 'recruited' him, turning him into an Inquisitor using Hemalurgy. This caused his innate Seeker abilities to be heightened even further, an ability which was of great use to the Inquisitors. It's quite likely that this allowed Marsh to pierce copperclouds, similar to Vin's earring. Despite it all, he continued to aid the rebellion behind the scenes, and when Vin confronted the Lord Ruler following Kelsier's death, he quietly removed the linchpin spikes from all of the other Inquisitors in Luthadel, most of which had gone to recuperate and refill their goldminds. Without the support of his Inquisitors, Vin was able to focus and finally succeed in killing the Lord Ruler.[37]\n\nFollowing the downfall of the Final Empire and the beginning of Elend's rule in Luthadel, Marsh would lead Sazed to the Conventical of Seran, though he exhibited strange behavior, unlike the Marsh of old.[9] Doing so allowed Sazed to discover Kwaan's inscription, but Marsh prevented him from translating it on the spot and instead forced him to make a rubbing, fleeing the Conventical, after which he promptly disappeared.[38] Left to his own devices, Sazed was motivated to bring his discovery back to Luthadel for research.[39] However, it is likely that Marsh was already under Ruin's influence, forcing Sazed to make a copy of the metal inscription so that Ruin could alter its message without anyone realizing it had been changed.",
+      "created_at": "2026-04-14T13:59:24",
+      "updated_at": "2026-04-14T13:59:24"
+    },
+    {
       "id": 11,
       "title": "Turin Turambar",
       "slug": "turin-turambar",

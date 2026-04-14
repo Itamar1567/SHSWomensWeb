@@ -7,6 +7,7 @@
     "dev": "vite",
     "prebuild": "node scripts/GetNewsletters.js",
     "build": "tsc -b && vite build",
+    "fullbuild": "npm run prebuild && npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

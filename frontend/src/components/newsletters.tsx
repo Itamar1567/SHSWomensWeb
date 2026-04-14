@@ -66,7 +66,8 @@ function Newsletter() {
           <p>Loading...</p>
         ) : filteredNewsletters.length > 0 ? (
           filteredNewsletters.map((b) => (
-            <NewsletterSummary key={b.id} newsletterSummary={b} />
+            <NewsletterSummary key={b.id} newsletterSummary={b} /> 
+            
           ))
         ) : (
           <p>No newsletters found</p>
