@@ -7,5 +7,6 @@ namespace backend.Data
     {
     }
     public DbSet <Newsletters> Newsletters{ get; set; }
+    public DbSet <StoredImages> StoredImages{ get; set; }
   }
 }

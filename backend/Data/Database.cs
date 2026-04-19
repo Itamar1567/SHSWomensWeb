@@ -1,9 +1,5 @@
-using System.ComponentModel;
 using backend.Data;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Asn1;
-using Org.BouncyCastle.Asn1.Mozilla;
 public class DatabaseRepository
 {
     private readonly AppDbContext _db;
@@ -16,19 +12,37 @@ public class DatabaseRepository
     public async Task<bool> IsDuplicateTitle(string value)
     {
         return await _db.Newsletters
-            .AnyAsync(n => n.title == value); 
+            .AnyAsync(n => n.title == value);
     }
 
     public async Task<bool> IsDuplicateImage(string value)
     {
-        return await _db.Newsletters
-            .AnyAsync(n => n.image_path == value); 
+        return await _db.StoredImages
+            .AnyAsync(n => n.image_path == value);
+    }
+
+    public async Task<bool> InsertImagePathToImageTable(string path)
+    {
+        try
+        {
+            StoredImages storedImages = new StoredImages{image_path = path};
+            await _db.StoredImages.AddAsync(storedImages); 
+            await _db.SaveChangesAsync();
+            return true;
+
+        }catch(Exception ex)
+        {
+            Console.WriteLine("Unable to add image to image table: " + ex);
+            return false;
+        }
+        
+        
     }
 
     public async Task<bool> CreateNewsLetter(Newsletters newsletter)
     {
         try
-        {
+        {   
             await _db.Newsletters.AddAsync(newsletter);
             await _db.SaveChangesAsync();
             return true;
@@ -71,7 +85,7 @@ public class DatabaseRepository
         try
         {
             var newsletter = await _db.Newsletters.FindAsync(id);
-            
+
             if (newsletter == null)
             {
                 throw new Exception("Newsletter not found");

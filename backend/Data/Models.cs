@@ -16,3 +16,14 @@ public class Newsletters
     public DateTime updated_at {get; set;} = DateTime.Now;
 
 }
+
+public class StoredImages
+{
+    [Key]
+    public int id {get; set;}
+    [Required]
+    public required string image_path {get; set;}
+    public DateTime created_at {get; set;} = DateTime.Now;
+
+}
+

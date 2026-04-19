@@ -1,8 +1,1 @@
-POST http://localhost:5100/api/CloudStorage/generate-signed-url HTTP/1.1
-content-type: application/json
-
-{
-   "name": "test-image.png",
-   "type": "image/png",
-   "size": 1024
-}
+GET http://localhost:5100/api/newsletter HTTP/1.1
