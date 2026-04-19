@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-using System.Data.Common;
-using System.Security;
->>>>>>> ddf3c3d (Disallow duplicate images in the Google Cloud Storage, Create Unique Image database table)
 using Microsoft.AspNetCore.Mvc;
 
 public class SignedUrlRequest
@@ -26,20 +21,11 @@ public class CloudStorageController : ControllerBase
     {
         _db = db;
         _generator = generator;
-<<<<<<< HEAD
-
-    } 
-
-    [HttpPost("generate-signed-url")]
-    public IActionResult GenerateSignedUrl([FromBody] SignedUrlRequest file)
-    {           
-=======
     }
 
     [HttpPost("generate-signed-url")]
     public async Task<IActionResult> GenerateSignedUrl([FromBody] SignedUrlRequest file)
     {
->>>>>>> ddf3c3d (Disallow duplicate images in the Google Cloud Storage, Create Unique Image database table)
         Console.WriteLine("File name: " + file.name + ", File type: " + file.type);
 
         if (file != null)
