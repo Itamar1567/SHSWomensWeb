@@ -28,6 +28,29 @@ public class NewsLetterController : ControllerBase
         }
     }
 
+    [HttpPatch("{id}")]
+    public async Task<ActionResult> OverrideNewsletterById([FromBody] EditNewsletterDTO editedNewsletter)
+    {
+        try
+        {
+
+            if(await _db.OverrideNewsletterByIdFromDatabase(editedNewsletter))
+            {
+                return Ok(new {message="Newsletter succesfully edited"});
+            }
+            else
+            {
+                return StatusCode(400, new {message="Failed to edit newsletter"});
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex);
+            return StatusCode(500, "Unable to edit newsletter: " + ex);
+        }
+    }
+
+
     [HttpGet]
     public async Task<ActionResult> GetNewsLetters()
     {
@@ -59,7 +82,6 @@ public class NewsLetterController : ControllerBase
 
             if (await _db.CreateNewsLetter(newNewsletter))
             {
-                await _frontendActions.RedeployMainWeb();
                 return Ok(new { message = "Newsletter created successfully" });
             }
 

@@ -84,6 +84,33 @@ public class DatabaseRepository
         }
     }
 
+    public async Task<bool> OverrideNewsletterByIdFromDatabase(EditNewsletterDTO editedNewsletter)
+    {
+        try
+        {
+            var oldNewsletter = await _db.Newsletters.Where(n => n.id == editedNewsletter.id).FirstOrDefaultAsync();
+
+            if(oldNewsletter == null)
+            {
+                throw new Exception("Newsletter to overwrite not found");
+            }
+
+            oldNewsletter.title = editedNewsletter.title;
+            oldNewsletter.slug = editedNewsletter.slug;
+            oldNewsletter.author = editedNewsletter.author;
+            oldNewsletter.short_description = editedNewsletter.short_description;
+            oldNewsletter.image_path = editedNewsletter.image_path;
+            oldNewsletter.story_text = editedNewsletter.story_text;
+
+            await _db.SaveChangesAsync();
+            return true;
+        }
+        catch(Exception ex)
+        {
+            throw new Exception("Failed to connect to the database: " + ex);
+        }
+    }
+
     public async Task<List<GetNewsLetterDTO>> GetNewsletters()
     {
         try
