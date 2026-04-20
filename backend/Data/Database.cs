@@ -52,6 +52,38 @@ public class DatabaseRepository
             return false;
         }
     }
+
+    public async Task<EditNewsletterDTO> GetNewsletterByIdFromDatabase(int id)
+    {
+        try
+        {
+            var newsletter = await _db.Newsletters.Where(n => n.id == id).Select(n => new EditNewsletterDTO
+            {
+                id = n.id,
+                title = n.title,
+                slug = n.slug,
+                author = n.author,
+                image_path = n.image_path != null ? n.image_path : null,
+                short_description = n.short_description ?? null,
+                story_text = n.story_text
+            }).FirstOrDefaultAsync();
+
+            if(newsletter == null)
+            {
+                throw new Exception("Could not find a newsletter with the given id");
+            }
+            else
+            {
+                return newsletter;
+            }
+
+        }catch(Exception ex)
+        {
+            Console.WriteLine("Issue when getting newsletter from database ", ex);
+            throw;
+        }
+    }
+
     public async Task<List<GetNewsLetterDTO>> GetNewsletters()
     {
         try

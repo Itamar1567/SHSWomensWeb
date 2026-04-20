@@ -13,6 +13,20 @@ public class NewsLetterController : ControllerBase
     }
 
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult> GetNewsletterById(int id)
+    {
+        try
+        {
+            var editableNewsletter = await _db.GetNewsletterByIdFromDatabase(id);
+            return Ok(new {editableNewsletter});
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine("Failed to get newsletter ", ex);
+            return StatusCode(400, new {message = "Failed to get newsletter: " + ex});
+        }
+    }
 
     [HttpGet]
     public async Task<ActionResult> GetNewsLetters()
