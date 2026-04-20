@@ -34,6 +34,11 @@ public class NewsLetterController : ControllerBase
         try
         {
 
+            if(await _db.IsDuplicateTitle(editedNewsletter.title, editedNewsletter.id))
+            {
+                return StatusCode(400, new {message="A newsletter with this title already exists"});    
+            }
+
             if(await _db.OverrideNewsletterByIdFromDatabase(editedNewsletter))
             {
                 return Ok(new {message="Newsletter succesfully edited"});

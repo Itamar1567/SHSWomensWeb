@@ -58,7 +58,7 @@ public class CloudStorageController : ControllerBase
             }
             else
             {
-                return StatusCode(400, new { message = "Image already exists. Added succesfully" });
+                return Ok(new { message = "Image already exists. Added succesfully" });
             }
 
 
@@ -73,7 +73,7 @@ public class CloudStorageController : ControllerBase
             }
         }
 
-        return StatusCode(400, new {message = "No signed url required"});
+        return Ok(new {message = "No signed url required"});
 
     }
 }

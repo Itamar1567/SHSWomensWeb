@@ -11,8 +11,13 @@ public class DatabaseRepository
 
     public async Task<bool> IsDuplicateTitle(string value)
     {
-        return await _db.Newsletters
-            .AnyAsync(n => n.title == value);
+        return await _db.Newsletters.AnyAsync(n => n.title == value);
+    }
+
+    //Check if a title exists in any row apart from id
+    public async Task<bool> IsDuplicateTitle(string value, int idToNotInclude)
+    {
+        return await _db.Newsletters.Where(n => n.id != idToNotInclude).AnyAsync(n => n.title == value);
     }
 
     public async Task<bool> IsDuplicateImage(string value)
