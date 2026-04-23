@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var corsPolicy = "_myPolicy";
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtOptions =>
+{
+    jwtOptions.Authority = builder.Configuration.GetSection("Api:ValidIssuer").Get<string>();
+
+    jwtOptions.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = false,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration.GetSection("Api:ValidIssuer").Get<string>()
+    };
+});
+
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
 builder.Services.AddCors(options =>
 {
@@ -30,7 +45,7 @@ builder.Services.AddCors(options =>
         {
             allowedOrigins = ["http://localhost:5174"];
         }
-        
+
         corsPolicy.WithOrigins(allowedOrigins).AllowAnyMethod().AllowAnyHeader().AllowCredentials();
     });
 });
@@ -45,6 +60,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseAuthentication();
 app.UseCors(corsPolicy);
 app.UseAuthorization();
 

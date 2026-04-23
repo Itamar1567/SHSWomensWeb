@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -10,9 +11,9 @@ public class NewsLetterController : ControllerBase
     {
         _db = db;
         _frontendActions = frontendActions;
-    }
+    }                                                   
 
-
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult> GetNewsletterById(int id)
     {
@@ -28,6 +29,7 @@ public class NewsLetterController : ControllerBase
         }
     }
 
+    [Authorize]
     [HttpPatch("{id}")]
     public async Task<ActionResult> OverrideNewsletterById([FromBody] EditNewsletterDTO editedNewsletter)
     {
@@ -55,7 +57,7 @@ public class NewsLetterController : ControllerBase
         }
     }
 
-
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult> GetNewsLetters()
     {
@@ -64,6 +66,7 @@ public class NewsLetterController : ControllerBase
         return Ok(new { newsletters });
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult> CreateNewsLetter([FromBody] CreateNewsLetterDTO newsletter)
     {
@@ -101,6 +104,7 @@ public class NewsLetterController : ControllerBase
         }
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteNewsLetter(int id)
     {
