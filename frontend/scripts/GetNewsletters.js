@@ -13,6 +13,9 @@ async function GetNewsletters() {
     try{
         const res = await fetch(`${backendUrl}/api/newsletter`)
         const data = await res.json();
+        if(!res.ok){
+            throw new Error("Invalid request");
+        }
         fs.writeFileSync(path.join(__dirname, "../public/newsletters.json"), JSON.stringify(data, null, 2));
         console.log("Writing to:", path.join(__dirname, "../public/newsletters.json"));
     }   

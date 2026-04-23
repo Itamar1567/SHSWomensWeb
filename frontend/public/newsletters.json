@@ -1,37 +1,92 @@
 {
   "newsletters": [
     {
-      "id": 14,
-      "title": "Marsh the Inquisitor",
-      "slug": "marsh-the-inquisitor",
-      "author": "Kelsier",
-      "image_path": "https://storage.googleapis.com/shs_newsletter_images/Marsh.png",
-      "short_description": "The transformation of Marsh",
-      "story_text": "Becoming an Inquisitor\nPlacing himself within a batch of new Ministry recruits flowing into Luthadel, he was accepted into their ranks. He quickly began to reveal important Ministry secrets to the rebellion using secret messages and drop sites. One such secret was the soothing stations, positioned by the Lord Ruler across Luthadel to inspire depression and docility in the skaa population.[35]\n\nHowever, not everything went as planned. Marsh set up a meeting at a site he was supposed to inspect for suitability as a soothing station. However, when the crew arrived, they discovered only a headless corpse, butchered by Inquisitors, and assumed Marsh dead.[36] They found a chair leg with a hidden message inside from Marsh, indicating that his questions about the Inquisitors had potentially exposed him, as they had been watching him, following him, and asking about him.\n\nIt was later revealed that he had been watched by the Canton of Inquisition, as Seekers were particularly desired, and they had 'recruited' him, turning him into an Inquisitor using Hemalurgy. This caused his innate Seeker abilities to be heightened even further, an ability which was of great use to the Inquisitors. It's quite likely that this allowed Marsh to pierce copperclouds, similar to Vin's earring. Despite it all, he continued to aid the rebellion behind the scenes, and when Vin confronted the Lord Ruler following Kelsier's death, he quietly removed the linchpin spikes from all of the other Inquisitors in Luthadel, most of which had gone to recuperate and refill their goldminds. Without the support of his Inquisitors, Vin was able to focus and finally succeed in killing the Lord Ruler.[37]\n\nFollowing the downfall of the Final Empire and the beginning of Elend's rule in Luthadel, Marsh would lead Sazed to the Conventical of Seran, though he exhibited strange behavior, unlike the Marsh of old.[9] Doing so allowed Sazed to discover Kwaan's inscription, but Marsh prevented him from translating it on the spot and instead forced him to make a rubbing, fleeing the Conventical, after which he promptly disappeared.[38] Left to his own devices, Sazed was motivated to bring his discovery back to Luthadel for research.[39] However, it is likely that Marsh was already under Ruin's influence, forcing Sazed to make a copy of the metal inscription so that Ruin could alter its message without anyone realizing it had been changed.",
-      "created_at": "2026-04-14T13:59:24",
-      "updated_at": "2026-04-14T13:59:24"
+      "id": 13,
+      "title": "Kaladin Stormblessed",
+      "slug": "kaladin-stormblessed",
+      "author": "ASDADASD",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/pexels-hunter-schroeder-2149144899-31585089.jpg",
+      "short_description": "The Life of Kaladin Stormblessed",
+      "story_text": "The Life of Kaladin Stormblessed The GOAT THE LORD OF ",
+      "created_at": "2026-04-20T14:30:01.465516",
+      "updated_at": "2026-04-20T14:30:01.465522"
     },
     {
       "id": 11,
-      "title": "Turin Turambar",
-      "slug": "turin-turambar",
-      "author": "Manwe",
-      "image_path": "https://storage.googleapis.com/shs_newsletter_images/turin_turambar.png",
-      "short_description": "The life of Turin Turambar",
-      "story_text": "Túrin accidentally caused the death of Saeros, one of Thingol's counsellors who provoked and attacked him. Before he could be either punished or forgiven for it, he fled, eventually encountering a band of outlaws that dwelt south of Brethil. With them, he identified himself only as Neithan (\"the wronged\"). The men of the band realized he was by far more skilled than themselves, so they accepted him. Túrin slew their leader after seeing him terrorize a woman, and became the outlaws' leader in his place. As leader, he stopped the band from raiding houses of free folk, and directed them to only assail Orcs.\n\nIn the meantime, Beleg Cúthalion obtained leave from Thingol to seek out his friend. In FA 487, Beleg found Túrin's outlaws at the outskirts of Amon Rûdh and was held and tied up by them until Túrin returned. Andróg, who was a prominent member of the group, mistrusted Beleg even after Túrin declared him a friend and begrudged him Túrin`s friendship. Beleg tried to persuade Túrin to return to Doriath, for the king held that he was innocent. When Beleg could not persuade his friend to leave the outlaws, he left to return to Doriath. Túrin's band later captured Mîm the Petty-dwarf while Beleg and Túrin were parted. Mîm was forced to share his halls on Amon Rûdh with his company while Túrin promised to repay Mîm for the accidental death of his son Khîm.",
-      "created_at": "2026-04-13T11:05:03",
-      "updated_at": "2026-04-13T11:05:03"
+      "title": "ASDADASD",
+      "slug": "asdadasd",
+      "author": "Itamar",
+      "image_path": null,
+      "short_description": "ASFSAFAS",
+      "story_text": "Im itamar a",
+      "created_at": "2026-04-19T19:07:46.330368",
+      "updated_at": "2026-04-19T19:07:46.330374"
     },
     {
-      "id": 10,
-      "title": "Kaladin Stormblessed",
-      "slug": "kaladin-stormblessed",
-      "author": "Dalinar Kholin",
-      "image_path": "https://storage.googleapis.com/shs_newsletter_images/kaladin.png",
-      "short_description": "The life of Kaladin Stormblessed",
-      "story_text": "Kaladin is one of the main protagonists in The Stormlight Archive. An accomplished spearman and a natural leader, he eventually becomes the captain of Elhokar Kholin's King's Guard, formerly known as the Cobalt Guard, House Kholin's personal honor guard.[3]\n\nHe is known by many as Kaladin Stormblessed, a nickname given to him by his squad in Amaram's army as a result of his uncanny luck and tendency to have the fewest casualties. The name was again given to him by his fellow bridgemen,[4] but it would soon spread to the entirety of Sadeas's warcamp. (Notably, his bridge earned a reputation for losing the fewest members of any bridge crew in Sadeas's army.) Following Bridge Four's rescue of Dalinar's army after Sadeas's betrayal,[5][6] the crew became famous throughout the warcamps and Kaladin became known to most therein as Kaladin Stormblessed.* He has risen further than any darkeyes could dare to hope, gaining the trust and admiration of both lighteyes and darkeyes.",
-      "created_at": "2026-04-13T10:29:09",
-      "updated_at": "2026-04-13T10:29:09"
+      "id": 9,
+      "title": "dgfdgfdsadasdfdgfdasddasdsadadghfhgadsadsfds",
+      "slug": "dgfdgfdsadasdfdgfdasddasdsadadghfhgadsadsfds",
+      "author": "adFASdasdaafASDsgadasadsaddfdgsadasddfgfdgdf",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/stadia_sdlc_failure_chart.png",
+      "short_description": "gdgasdasdgfdgdfgasdasdasdassadgfhgfhfghasdadfdgfdg",
+      "story_text": "fdgfdgdf",
+      "created_at": "2026-04-19T13:50:53.702092",
+      "updated_at": "2026-04-19T13:50:53.702102"
+    },
+    {
+      "id": 7,
+      "title": "dgfdgfdsadasdfdgfdasddasdsadadghfhg",
+      "slug": "dgfdgfdsadasdfdgfdasddasdsadadghfhg",
+      "author": "adFASdasdaafASDsgadasadsaddfdg",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/stadia_sdlc_failure_chart.png",
+      "short_description": "gdgasdasdgfdgdfgasdasdasdassadgfhgfhfgh",
+      "story_text": "fdgfdgdf",
+      "created_at": "2026-04-19T13:49:53.693673",
+      "updated_at": "2026-04-19T13:49:53.693688"
+    },
+    {
+      "id": 6,
+      "title": "dgfdgfdsadasdfdgfdasddasdsadad",
+      "slug": "dgfdgfdsadasdfdgfdasddasdsadad",
+      "author": "adFASdasdaafASDsgadasadsadd",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/stadia_sdlc_failure_chart.png",
+      "short_description": "gdgasdasdgfdgdfgasdasdasdassad",
+      "story_text": "fdgfdgdf",
+      "created_at": "2026-04-19T13:45:55.276139",
+      "updated_at": "2026-04-19T13:45:55.276153"
+    },
+    {
+      "id": 5,
+      "title": "dgfdgfdsadasdfdgfdasdad",
+      "slug": "dgfdgfdsadasdfdgfdasdad",
+      "author": "adFASdasdaafASDsgadad",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/stadia_sdlc_failure_chart.png",
+      "short_description": "gdgasdasdgfdgdfgasdsad",
+      "story_text": "fdgfdgdf",
+      "created_at": "2026-04-19T13:44:55.195986",
+      "updated_at": "2026-04-19T13:44:55.195992"
+    },
+    {
+      "id": 4,
+      "title": "dgfdgfdsadasdfdgfd",
+      "slug": "dgfdgfdsadasdfdgfd",
+      "author": "adFASdasdaafASDsgfdgdfgdfgd",
+      "image_path": null,
+      "short_description": "gdgasdasdgfdgdfg",
+      "story_text": "fdgfdgdf",
+      "created_at": "2026-04-19T13:44:17.508547",
+      "updated_at": "2026-04-19T13:44:17.508552"
+    },
+    {
+      "id": 3,
+      "title": "dgfdgfdsadasd",
+      "slug": "dgfdgfdsadasd",
+      "author": "adFASdasda",
+      "image_path": "https://storage.googleapis.com/shs_newsletter_images/stadia_sdlc_failure_chart.png",
+      "short_description": "gdgasdasd",
+      "story_text": "fdgfdgdf",
+      "created_at": "2026-04-19T13:40:55.974387",
+      "updated_at": "2026-04-19T13:40:55.974398"
     }
   ]
 }

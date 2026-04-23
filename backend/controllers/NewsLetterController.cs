@@ -13,7 +13,6 @@ public class NewsLetterController : ControllerBase
         _frontendActions = frontendActions;
     }                                                   
 
-    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult> GetNewsletterById(int id)
     {
@@ -57,7 +56,7 @@ public class NewsLetterController : ControllerBase
         }
     }
 
-    [Authorize]
+
     [HttpGet]
     public async Task<ActionResult> GetNewsLetters()
     {
