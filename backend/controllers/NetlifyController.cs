@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -10,6 +11,7 @@ public class NetlifyController : ControllerBase
         _frontendActions = frontendActions;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult> RedeployNetlifyWebsite()
     {

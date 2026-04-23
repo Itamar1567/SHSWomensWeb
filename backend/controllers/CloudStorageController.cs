@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 public class SignedUrlRequest
@@ -23,6 +24,7 @@ public class CloudStorageController : ControllerBase
         _generator = generator;
     }
 
+    [Authorize]
     [HttpPost("generate-signed-url")]
     public async Task<IActionResult> GenerateSignedUrl([FromBody] SignedUrlRequest file)
     {
