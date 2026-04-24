@@ -31,6 +31,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuer = true,
         ValidateAudience = false,
         ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
         ValidIssuer = builder.Configuration.GetSection("Api:ValidIssuer").Get<string>()
     };
 });

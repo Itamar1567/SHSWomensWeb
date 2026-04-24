@@ -60,7 +60,7 @@ public class CloudStorageController : ControllerBase
             }
             else
             {
-                return Ok(new { message = "Image already exists. Added succesfully" });
+                return StatusCode(400, new { message = "Image already exists. Added succesfully" });
             }
 
 

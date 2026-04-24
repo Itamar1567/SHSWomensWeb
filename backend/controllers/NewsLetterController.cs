@@ -6,11 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 public class NewsLetterController : ControllerBase
 {
     private readonly DatabaseRepository _db;
-    private readonly FrontendActions _frontendActions;
     public NewsLetterController(DatabaseRepository db, FrontendActions frontendActions)
     {
         _db = db;
-        _frontendActions = frontendActions;
     }                                                   
 
     [HttpGet("{id}")]
@@ -110,7 +108,6 @@ public class NewsLetterController : ControllerBase
         try
         {
             string data = await _db.DeleteNewsLetter(id);
-            await _frontendActions.RedeployMainWeb();
             return Ok(new { message = data });
         }catch(Exception ex)
         {
