@@ -45,6 +45,10 @@ p {
   color: rgb(183, 0, 255);
 }
 
+.text-overflow-wraper{
+  overflow-wrap: anywhere;
+}
+
 input {
   background-color: rgb(194, 194, 194);
   font-size: 20px;
@@ -63,6 +67,7 @@ textarea {
 textarea:hover {
   background-color: rgb(161, 161, 161);
 }
+
 @media only screen and (max-width: 600px) {
   .section-title {
     font-size: 28px;

@@ -101,7 +101,6 @@ public class DatabaseRepository
                 throw new Exception("Newsletter to overwrite not found");
             }
 
-            Console.WriteLine("New Path: " + editedNewsletter.image_path);
             oldNewsletter.title = editedNewsletter.title;
             oldNewsletter.slug = editedNewsletter.slug;
             oldNewsletter.author = editedNewsletter.author;

@@ -17,7 +17,7 @@ function NewsletterSummary({ newsletterSummary }: props) {
   return (
     <div>
       <div className="summary-container container">
-        <p className="text-animation" onClick={handleClick}>
+        <p className="text-animation text-overflow-wraper" onClick={handleClick}>
           {newsletterSummary.title}
         </p>
         {newsletterSummary.image_path != null && (
@@ -29,7 +29,7 @@ function NewsletterSummary({ newsletterSummary }: props) {
           />
         )}
 
-        <p className="text-animation" onClick={handleClick}>
+        <p className="text-animation text-overflow-wraper" onClick={handleClick}>
           {newsletterSummary.short_description}
         </p>
         <section className="dates-section">
