@@ -7,7 +7,9 @@ function Newsletter() {
   const [loading, setLoading] = useState(true);
 
   const [newsletters, setNewsletters] = useState<GetNewsletterDTO[]>([]);
-  const [filteredNewsletters, setFilteredNewsletters] = useState<GetNewsletterDTO[]>([]);
+  const [filteredNewsletters, setFilteredNewsletters] = useState<
+    GetNewsletterDTO[]
+  >([]);
   const [searchItem, setSearchItem] = useState("");
 
   useEffect(() => {
@@ -18,7 +20,6 @@ function Newsletter() {
         console.log("Fetched newsletters:", data.newsletters);
         setNewsletters(data.newsletters);
         setFilteredNewsletters(data.newsletters);
-
       } catch (error) {
         console.log("Failed to fetch newsletters:", error);
         setNewsletters([]);
@@ -28,8 +29,6 @@ function Newsletter() {
     };
     GetNewsletters();
   }, []);
-
-
 
   function filterNewsletters(e: React.ChangeEvent<HTMLInputElement>) {
     let searchTerm: string = e.currentTarget.value;
@@ -51,7 +50,9 @@ function Newsletter() {
   return (
     <div className="newsletter-container container">
       <section className="newsletter-section">
-        <p className="section-title">Newsletter</p>
+        <div className="section-title-container">
+          <p className="section-title-text">Newsletters</p>
+        </div>
         <div className="search-container">
           <p>Search:</p>
           <input
@@ -66,8 +67,7 @@ function Newsletter() {
           <p>Loading...</p>
         ) : filteredNewsletters.length > 0 ? (
           filteredNewsletters.map((b) => (
-            <NewsletterSummary key={b.id} newsletterSummary={b} /> 
-            
+            <NewsletterSummary key={b.id} newsletterSummary={b} />
           ))
         ) : (
           <p>No newsletters found</p>

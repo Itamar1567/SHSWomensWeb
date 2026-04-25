@@ -4,7 +4,9 @@ function About() {
   return (
     <div className="about-container container">
       <section className="about-section">
-        <p className="section-title">About Us</p>
+        <div className="section-title-container">
+          <p className="section-title-text">About Us</p>
+        </div>
         <div className="paragraph-container">
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
@@ -15,7 +17,8 @@ function About() {
             velit esse molestie consequat, vel illum dolore eu feugiat nulla
             facilisis at vero eros et accumsan.
           </p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
             ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
@@ -25,12 +28,15 @@ function About() {
             nobis eleifend option congue nihil imperdiet doming id quod mazim
             placerat facer possim assum. Typi non habent claritatem insitam; est
             usus legentis in iis qui facit eorum claritatem. Investigationes
-            demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
+            demonstraverunt lectores legere me lius quod ii legunt saepius.
+          </p>
         </div>
       </section>
 
       <section className="about-section">
-        <p className="section-title">What we are about</p>
+        <div className="section-title-container">
+          <p className="section-title-text">What we are about</p>
+        </div>
         <div className="paragraph-container">
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
@@ -49,7 +55,9 @@ function About() {
       </section>
 
       <section className="about-section">
-        <p className="section-title">Our Purpose</p>
+        <div className="section-title-container">
+          <p className="section-title-text">Our Purpose</p>
+        </div>
         <div className="paragraph-container">
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam

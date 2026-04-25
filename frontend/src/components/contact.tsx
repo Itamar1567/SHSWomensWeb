@@ -6,7 +6,9 @@ import { Button } from "@mui/material";
 function Contact() {
   return (
     <div className="contact-container container">
-      <p className="section-title">Contact Us</p>
+      <div className="section-title-container">
+        <p className="section-title-text">Contact Us</p>
+      </div>{" "}
       <section className="contact-section">
         <div className="contact-form-container">
           <h1>Send Us a Message</h1>
