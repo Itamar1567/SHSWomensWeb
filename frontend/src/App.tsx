@@ -23,8 +23,7 @@ function App() {
         <Route path="/success" element={<FormSubmitted></FormSubmitted>}></Route>
         <Route path="/newsletter/:slug" element={<NewsletterPage></NewsletterPage>}></Route>
       </Routes>
-      </main>
-      
+      </main>  
       <Footer></Footer>
       </div>
     </Router>
