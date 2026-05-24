@@ -6,17 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/[controller]")]
 public class TestController : ControllerBase
 {
+    private ILogger<TestController> _logger;
     private DatabaseRepository _db;
 
-    public TestController(DatabaseRepository db)
+    public TestController(DatabaseRepository db, ILogger<TestController> logger)
     {
+        _logger = logger;
         _db = db;
     }
 
     [HttpGet("hello")]
     public ActionResult GetHello()
     {
-        return Ok(new {message = "Hello World"});
+        _logger.LogInformation("Hello world entered succesfully");
+        return Ok(new { message = "Hello World" });
     }
 
     [Authorize]
@@ -25,11 +28,12 @@ public class TestController : ControllerBase
     {
         if (_db.TestConnection())
         {
-            return Ok(new {message = "Database connection successful"});
+            return Ok(new { message = "Database connection successful" });
         }
         else
         {
-            return StatusCode(500, new {message = "Database connection failed"});
+            _logger.LogError("Database connection failed");
+            return StatusCode(500, new { message = "Database connection failed" });
         }
     }
 }

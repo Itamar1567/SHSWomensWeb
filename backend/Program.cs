@@ -5,8 +5,6 @@ using Microsoft.IdentityModel.Tokens;
 
 var corsPolicy = "_myPolicy";
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
-builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 
 //Dependency Injections
@@ -53,6 +51,31 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var logger = scope.ServiceProvider
+        .GetRequiredService<ILogger<Program>>();
+
+    try
+    {
+        var db = scope.ServiceProvider
+            .GetRequiredService<AppDbContext>();
+
+        if (db.Database.CanConnect())
+        {
+            logger.LogInformation("Database connection successful");
+        }
+        else
+        {
+            logger.LogWarning("Database connection failed");
+        }
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "Database startup connection failure");
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -65,10 +88,6 @@ app.UseHttpsRedirection();
 app.UseCors(corsPolicy);
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
 
 app.MapControllers();
 app.MapGet("/", () => "Site Succefully Loaded");
