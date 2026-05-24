@@ -71,5 +71,5 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.MapControllers();
-
+app.MapGet("/", () => "Site Succefully Loaded");
 app.Run();
