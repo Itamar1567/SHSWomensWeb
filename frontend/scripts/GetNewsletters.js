@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:5100";
+const backendUrl = "https://shswomenswebbackend-442068595379.us-central1.run.app";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
