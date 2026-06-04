@@ -26,6 +26,7 @@ public class FrontendActions
     try
     {
         var res = await _client.PostAsync(url, null);
+        _logger.LogError(url);
     }
     catch (Exception ex)
     {
