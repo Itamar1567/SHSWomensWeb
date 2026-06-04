@@ -15,7 +15,6 @@ builder.Services.AddScoped<FrontendActions>();
 builder.Services.AddScoped<HttpClient>();
 
 var issuer = builder.Configuration["Api:ValidIssuer"];
-Console.WriteLine("Valid Issuer: " + issuer);
 // Rate Limiting Configuration
 builder.Services.AddRateLimiter(rateLimiterOptions =>
 {
@@ -94,6 +93,7 @@ using (var scope = app.Services.CreateScope())
         if (db.Database.CanConnect())
         {
             logger.LogInformation("Database connection successful");
+            logger.LogInformation("Valid Issuer: " + issuer);
         }
         else
         {
