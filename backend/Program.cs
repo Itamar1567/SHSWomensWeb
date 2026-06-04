@@ -44,7 +44,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    Console.WriteLine("Using connection string: " + connectionString);
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
