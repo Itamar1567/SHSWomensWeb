@@ -14,6 +14,8 @@ builder.Services.AddScoped<GenerateSignedUrl>();
 builder.Services.AddScoped<FrontendActions>();
 builder.Services.AddScoped<HttpClient>();
 
+var issuer = builder.Configuration["Api:ValidIssuer"];
+Console.WriteLine("Valid Issuer: " + issuer);
 // Rate Limiting Configuration
 builder.Services.AddRateLimiter(rateLimiterOptions =>
 {
@@ -49,7 +51,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtOptions =>
 {
-    jwtOptions.Authority = builder.Configuration.GetSection("Api:ValidIssuer").Get<string>();
+    
+    jwtOptions.Authority = issuer;
 
     jwtOptions.TokenValidationParameters = new TokenValidationParameters
     {
@@ -57,7 +60,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateAudience = false,
         ValidateIssuerSigningKey = true,
         ValidateLifetime = true,
-        ValidIssuer = builder.Configuration.GetSection("Api:ValidIssuer").Get<string>()
+        ValidIssuer = issuer
     };
 });
 
@@ -118,5 +121,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapGet("/", () => "Site Succefully Loaded");
+app.MapGet("/", () => "Site successfully loaded").RequireRateLimiting("public_rate");
 app.Run();
