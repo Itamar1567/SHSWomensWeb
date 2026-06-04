@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.RateLimiting;
 
 var corsPolicy = "_myPolicy";
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,32 @@ builder.Services.AddScoped<DatabaseRepository>();
 builder.Services.AddScoped<GenerateSignedUrl>();
 builder.Services.AddScoped<FrontendActions>();
 builder.Services.AddScoped<HttpClient>();
+
+// Rate Limiting Configuration
+builder.Services.AddRateLimiter(rateLimiterOptions =>
+{
+    rateLimiterOptions
+        .AddSlidingWindowLimiter(policyName: "public_rate", options =>
+        {
+            options.PermitLimit = 50;
+            options.Window = TimeSpan.FromMinutes(1);
+            options.SegmentsPerWindow = 2;
+        })
+        .AddSlidingWindowLimiter(policyName: "authenticated_rate", options =>
+        {
+            options.PermitLimit = 100;
+            options.Window = TimeSpan.FromMinutes(1);
+            options.SegmentsPerWindow = 2;
+        })
+        .AddSlidingWindowLimiter(policyName: "storage_rate", options =>
+        {
+            options.PermitLimit = 25;
+            options.Window = TimeSpan.FromMinutes(1);
+            options.SegmentsPerWindow = 2;
+        });
+
+    rateLimiterOptions.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -86,6 +113,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors(corsPolicy);
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 

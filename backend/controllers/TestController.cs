@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -15,6 +16,7 @@ public class TestController : ControllerBase
         _db = db;
     }
 
+    [EnableRateLimiting("public_rate")]
     [HttpGet("hello")]
     public ActionResult GetHello()
     {
@@ -22,6 +24,7 @@ public class TestController : ControllerBase
         return Ok(new { message = "Hello World" });
     }
 
+    [EnableRateLimiting("authenticated_rate")]
     [Authorize]
     [HttpGet("database")]
     public ActionResult GetDatabase()
