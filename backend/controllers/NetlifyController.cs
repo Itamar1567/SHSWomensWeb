@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 [ApiController]
 [Route("api/{controller}")]
@@ -11,6 +12,7 @@ public class NetlifyController : ControllerBase
         _frontendActions = frontendActions;
     }
 
+    [EnableRateLimiting("authenticated_rate")]
     [Authorize]
     [HttpGet]
     public async Task<ActionResult> RedeployNetlifyWebsite()
@@ -22,7 +24,6 @@ public class NetlifyController : ControllerBase
         }
         catch(Exception ex)
         {
-            Console.WriteLine("Unable to redeploy", ex);
             return StatusCode(500, new {message="Unable to redeploy website", error=ex});
         }
     }
