@@ -14,7 +14,6 @@ public class FrontendActions
     public async Task RedeployMainWeb()
 {
     var url = Environment.GetEnvironmentVariable("NetlifyBuildAPI");
-    _logger.LogError("NetlifyBuildAPI environment variable: " + url);
 
     //If null the variable was not found
     if (string.IsNullOrEmpty(url))
@@ -26,7 +25,6 @@ public class FrontendActions
     try
     {
         var res = await _client.PostAsync(url, null);
-        _logger.LogError(url);
     }
     catch (Exception ex)
     {
