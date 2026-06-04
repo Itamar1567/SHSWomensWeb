@@ -13,7 +13,7 @@ public class FrontendActions
     {
         try
         {
-            var res = await _client.PostAsync(Environment.GetEnvironmentVariable("NetlifyBuildAPIKey"), null);
+            var res = await _client.PostAsync(Environment.GetEnvironmentVariable("NetlifyBuildAPI"), null);
             Console.WriteLine("Redeploy response: " + res.StatusCode);
         }
         catch (Exception ex)

@@ -93,7 +93,6 @@ using (var scope = app.Services.CreateScope())
         if (db.Database.CanConnect())
         {
             logger.LogInformation("Database connection successful");
-            logger.LogInformation("Valid Issuer: " + issuer);
         }
         else
         {
