@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavigationBar from "./components/navigationbar";
 import "./App.css";
@@ -9,6 +10,8 @@ import ScrollToTop from "./helpers/scrollToTop";
 import FormSubmitted from "./components/formSubmitted";
 import NewsletterPage from "./components/newsletterPage";
 
+const ContactComponent = Contact as ComponentType;
+
 function App() {
   return (
     <Router>
@@ -19,7 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<About></About>}></Route>
         <Route path="/newsletter" element={<Newsletter></Newsletter>}></Route>
-        <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route path="/contact" element={<ContactComponent />}></Route>
         <Route path="/success" element={<FormSubmitted></FormSubmitted>}></Route>
         <Route path="/newsletter/:slug" element={<NewsletterPage></NewsletterPage>}></Route>
       </Routes>

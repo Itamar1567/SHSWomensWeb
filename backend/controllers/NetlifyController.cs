@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.RateLimiting;
 [Route("api/{controller}")]
 public class NetlifyController : ControllerBase
 {
-    FrontendActions _frontendActions;
-    public NetlifyController(FrontendActions frontendActions)
+    private readonly FrontendActions _frontendActions;
+    private readonly ILogger<NetlifyController> _logger;
+
+    public NetlifyController(FrontendActions frontendActions, ILogger<NetlifyController> logger)
     {
         _frontendActions = frontendActions;
+        _logger = logger;
     }
 
     [EnableRateLimiting("authenticated_rate")]
@@ -24,7 +27,8 @@ public class NetlifyController : ControllerBase
         }
         catch(Exception ex)
         {
-            return StatusCode(500, new {message="Unable to redeploy website", error=ex});
+            _logger.LogError(ex, "Error occurred during Netlify website redeploy");
+            return StatusCode(500, new {message="Unable to redeploy website"});
         }
     }
 }

@@ -1,16 +1,21 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 [ApiController]
 [Route("api/[controller]")]
 public class NewsLetterController : ControllerBase
 {
     private readonly DatabaseRepository _db;
-    public NewsLetterController(DatabaseRepository db, FrontendActions frontendActions)
+    private readonly ILogger<NewsLetterController> _logger;
+
+    public NewsLetterController(DatabaseRepository db, FrontendActions frontendActions, ILogger<NewsLetterController> logger)
     {
         _db = db;
+        _logger = logger;
     }                                                   
 
+    [EnableRateLimiting("public_rate")]
     [HttpGet("{id}")]
     public async Task<ActionResult> GetNewsletterById(int id)
     {
@@ -21,11 +26,12 @@ public class NewsLetterController : ControllerBase
         }
         catch(Exception ex)
         {
-            Console.WriteLine("Failed to get newsletter ", ex);
-            return StatusCode(400, new {message = "Failed to get newsletter: " + ex});
+            _logger.LogError(ex, "Error retrieving newsletter with id: {NewsLetterId}", id);
+            return StatusCode(500, new {message = "An error occurred while retrieving the newsletter"});
         }
     }
 
+    [EnableRateLimiting("authenticated_rate")]
     [Authorize]
     [HttpPatch("{id}")]
     public async Task<ActionResult> OverrideNewsletterById([FromBody] EditNewsletterDTO editedNewsletter)
@@ -49,12 +55,13 @@ public class NewsLetterController : ControllerBase
         }
         catch(Exception ex)
         {
-            Console.WriteLine(ex);
-            return StatusCode(500, "Unable to edit newsletter: " + ex);
+            _logger.LogError(ex, "Error editing newsletter with id: {NewsLetterId}", editedNewsletter.id);
+            return StatusCode(500, new {message = "An error occurred while editing the newsletter"});
         }
     }
 
 
+    [EnableRateLimiting("public_rate")]
     [HttpGet]
     public async Task<ActionResult> GetNewsLetters()
     {
@@ -63,6 +70,7 @@ public class NewsLetterController : ControllerBase
         return Ok(new { newsletters });
     }
 
+    [EnableRateLimiting("authenticated_rate")]
     [Authorize]
     [HttpPost]
     public async Task<ActionResult> CreateNewsLetter([FromBody] CreateNewsLetterDTO newsletter)
@@ -101,6 +109,7 @@ public class NewsLetterController : ControllerBase
         }
     }
 
+    [EnableRateLimiting("authenticated_rate")]
     [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteNewsLetter(int id)
@@ -111,7 +120,8 @@ public class NewsLetterController : ControllerBase
             return Ok(new { message = data });
         }catch(Exception ex)
         {
-            return StatusCode(500, new { message = ex.Message });
+            _logger.LogError(ex, "Error deleting newsletter with id: {NewsLetterId}", id);
+            return StatusCode(500, new { message = "An error occurred while deleting the newsletter" });
         }
 
     }

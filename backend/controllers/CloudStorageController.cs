@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 public class SignedUrlRequest
 {
@@ -15,20 +16,23 @@ public class SignedUrlRequest
 public class CloudStorageController : ControllerBase
 {
     private const long maxFileSize = 5 * 1024 * 1024; // 5 MB
-    GenerateSignedUrl _generator;
-    DatabaseRepository _db;
+    private readonly GenerateSignedUrl _generator;
+    private readonly DatabaseRepository _db;
+    private readonly ILogger<CloudStorageController> _logger;
 
-    public CloudStorageController(GenerateSignedUrl generator, DatabaseRepository db)
+    public CloudStorageController(GenerateSignedUrl generator, DatabaseRepository db, ILogger<CloudStorageController> logger)
     {
         _db = db;
         _generator = generator;
+        _logger = logger;
     }
 
+    [EnableRateLimiting("authenticated_rate")]
     [Authorize]
     [HttpPost("generate-signed-url")]
     public async Task<IActionResult> GenerateSignedUrl([FromBody] SignedUrlRequest file)
     {
-        Console.WriteLine("File name: " + file.name + ", File type: " + file.type);
+        _logger.LogInformation("Generate signed URL requested for file type: {FileType}", file.type);
 
         if (file != null)
         {

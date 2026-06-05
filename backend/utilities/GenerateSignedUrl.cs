@@ -3,6 +3,13 @@ using Google.Apis.Auth.OAuth2;
 using Google.Cloud.Storage.V1;
 public class GenerateSignedUrl
 {
+    private readonly ILogger<GenerateSignedUrl> _logger;
+
+    public GenerateSignedUrl(ILogger<GenerateSignedUrl> logger)
+    {
+        _logger = logger;
+    }
+
     public string GenerateV4SignedUrl(string fileName = "your-object-name", string fileType = "text/plain", string bucketName = "your-bucket-name")
     {
 
@@ -25,15 +32,12 @@ public class GenerateSignedUrl
                 .WithContentHeaders(contentHeaders);
 
             string url = urlSigner.Sign(template, options);
-            Console.WriteLine("Generated PUT signed URL:");
-            Console.WriteLine(url);
-            Console.WriteLine("You can use this URL with any user agent, for example:");
-            Console.WriteLine($"curl -X PUT -H 'Content-Type: text/plain' --upload-file my-file '{url}'");
+            _logger.LogInformation("Generated PUT signed URL for file: {FileName} in bucket: {BucketName}", fileName, bucketName);
             return url;
         }
-        catch
+        catch(Exception ex)
         {
-            Console.WriteLine("Error generating signed URL.");
+            _logger.LogError(ex, "Error generating signed URL for file: {FileName}", fileName);
             throw new Exception("Failed to generate a signed URL request.");
         }
     }

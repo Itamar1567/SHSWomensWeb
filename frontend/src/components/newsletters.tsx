@@ -5,6 +5,7 @@ import type { GetNewsletterDTO } from "../types/GetNewsletterDTO";
 
 function Newsletter() {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const [newsletters, setNewsletters] = useState<GetNewsletterDTO[]>([]);
   const [filteredNewsletters, setFilteredNewsletters] = useState<
@@ -16,13 +17,18 @@ function Newsletter() {
     const GetNewsletters = async () => {
       try {
         const res = await fetch("/newsletters.json");
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
         const data = await res.json();
-        console.log("Fetched newsletters:", data.newsletters);
+        console.log("Newsletters loaded successfully");
         setNewsletters(data.newsletters);
         setFilteredNewsletters(data.newsletters);
-      } catch (error) {
-        console.log("Failed to fetch newsletters:", error);
+        setError(null);
+      } catch (err) {
+        console.error("Failed to fetch newsletters:", err);
         setNewsletters([]);
+        setError("Failed to load newsletters. Please try refreshing the page.");
       } finally {
         setLoading(false);
       }
@@ -65,6 +71,8 @@ function Newsletter() {
         </div>
         {loading ? (
           <p>Loading...</p>
+        ) : error ? (
+          <p style={{ color: "#d32f2f", marginTop: "1rem" }}>{error}</p>
         ) : filteredNewsletters.length > 0 ? (
           filteredNewsletters.map((b) => (
             <NewsletterSummary key={b.id} newsletterSummary={b} />

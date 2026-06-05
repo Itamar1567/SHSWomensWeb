@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore;
 public class DatabaseRepository
 {
     private readonly AppDbContext _db;
+    private readonly ILogger<DatabaseRepository> _logger;
 
-    public DatabaseRepository(AppDbContext db)
+    public DatabaseRepository(AppDbContext db, ILogger<DatabaseRepository> logger)
     {
         _db = db;
+        _logger = logger;
     }
 
     public async Task<bool> IsDuplicateTitle(string value)
@@ -37,7 +39,7 @@ public class DatabaseRepository
 
         }catch(Exception ex)
         {
-            Console.WriteLine("Unable to add image to image table: " + ex);
+            _logger.LogError(ex, "Error inserting image path into database: {ImagePath}", path);
             return false;
         }
         
@@ -84,7 +86,7 @@ public class DatabaseRepository
 
         }catch(Exception ex)
         {
-            Console.WriteLine("Issue when getting newsletter from database ", ex);
+            _logger.LogError(ex, "Error retrieving newsletter with id: {NewsLetterId} from database", id);
             throw;
         }
     }
@@ -113,7 +115,8 @@ public class DatabaseRepository
         }
         catch(Exception ex)
         {
-            throw new Exception("Failed to connect to the database: " + ex);
+            _logger.LogError(ex, "Error updating newsletter with id: {NewsLetterId}", editedNewsletter.id);
+            throw new Exception("Failed to update the newsletter");
         }
     }
 
