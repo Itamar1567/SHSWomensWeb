@@ -65,9 +65,10 @@ function Contact() {
               placeholder="Message"
               required
             />
-            <Button type="submit" variant="contained">
+            <div className="submit-container"><Button type="submit" variant="contained">
               Send
             </Button>
+            <p>By submitting this form, you agree to our <a href="/privacyPolicy.html" target="_blank">Privacy Policy</a>. We use this information only to respond to your inquiry.</p></div>
           </form>
         </div>
         <div className="micro-contact-info-container">

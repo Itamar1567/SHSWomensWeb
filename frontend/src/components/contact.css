@@ -64,3 +64,12 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.submit-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;;
+}
+.submit-container Button{
+  width: 100%;
+}
