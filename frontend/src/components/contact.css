@@ -51,12 +51,14 @@
 #message-input{
   height: 150px;
   padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 .contact-form-input{
   max-width: 375px;
   height: 40px;
   width: 100%;
+  border-radius: 0.5rem;
 }
 
 .micro-contact-info-container{
