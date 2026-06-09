@@ -1,0 +1,1 @@
+This website will serves as an information provider for the SHS health club
